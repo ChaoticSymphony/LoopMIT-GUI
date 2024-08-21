@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LoopMIT</title>
+  <link rel="icon" type="image/x-icon" href="assets/LoopLogoGradient.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="custom-error-popup" id="customErrorPopup">
+    <p id="customErrorMessage"></p>
+    <button onclick="hideCustomError()">OK</button>
+  </div>
+  <div class="container">
+    <div class="logo_section">
+      <img id="podImage" src="./assets/looplogo.jpeg" alt="Loop MIT Logo" />
+    </div>
+    <div class="pod-info">
+      <div class="slider-container">
+        <input type="range" min="0" max="100" value="0" id="myRange" onchange="updateDistance()" />
+        <p>
+          Distance Travelled:
+          <span id="demo" style="font-weight: bold">0</span>
+        </p>
+      </div>
+      <button class="button2">START</button>
+      <button class="button3">STOP</button>
+      <button class="button1">ESTOP</button>
+    </div>
+    <div class="sec_main" style="display: flex">
+      <div class="sec_lim_acc">
+        <div class="horizontal-section">
+          <div>
+            <p>Acceleration</p>
+            <button
+              id="acceleration"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 10px;
+              "
+            >
+              100 ms^-2
+            </button>
+          </div>
+          <div>
+            <p>Voltage</p>
+            <button
+              id="voltage"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 10px;
+              "
+            >
+              200 V
+            </button>
+          </div>
+        </div>
+        <div class="horizontal-section" style="width: 440px; margin: 10px">
+          <div class="second_section">
+            <p>LIM Temperature</p>
+
+            <button
+              style="font-size: 30px; border-radius: 10px; height: 100px"
+              id="lim_temp"
+            >
+              45°C
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="horizontal-section">
+        <div class="second_section" style="margin: 10px">
+          <p>High Voltage Battery</p>
+          <div class="high-voltage-buttons">
+            <button
+              id="high_battery_temp"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 25px;
+              "
+            >
+              40°C
+            </button>
+            <button
+              id="high_battery_voltage"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 25px;
+              "
+            >
+              50 V
+            </button>
+          </div>
+          <div class="high-voltage-buttons">
+            <button
+              id="high_battery_power"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 25px;
+              "
+            >
+              200W
+            </button>
+            <button
+              id="high_battery_current"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 25px;
+              "
+            >
+              100A
+            </button>
+          </div>
+        </div>
+        <div class="second_section">
+          <p>Low Voltage Battery</p>
+          <div class="low-voltage-buttons">
+            <button
+              id="low_battery_temp"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 25px;
+              "
+            >
+              55°C
+            </button>
+            <button
+              id="low_battery_voltage"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 25px;
+              "
+            >
+              20 V
+            </button>
+          </div>
+          <div class="low-voltage-buttons">
+            <button
+              id="low_battery_power"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 25px;
+              "
+            >
+              35W
+            </button>
+            <button
+              id="low_battery_current"
+              style="
+                font-size: 30px;
+                border-radius: 10px;
+                height: 100px;
+                margin: 25px;
+              "
+            >
+              50A
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sensors-info">
+      <div class="sensor-container">
+        <p>Proximity Sensor</p>
+        <button id="proximity">2 cm</button>
+      </div>
+      <div class="sensor-container">
+        <p>Gap Height</p>
+        <button id="gap_height">1.5 mm</button>
+      </div>
+      <div class="sensor-container">
+        <p>Pressure Sensor</p>
+        <button id="pressure">100 Pa</button>
+      </div>
+      <div class="sensor-container">
+        <p>Propulsion</p>
+        <button>READY</button>
+      </div>
+      <div class="sensor-container">
+        <p>Brakes</p>
+        <button>OFF</button>
+      </div>
+      <div class="sensor-container">
+        <p>Levitation</p>
+        <button>READY</button>
+      </div>
+    </div>
+
+    <div id="imageContainer">
+      <img id="podAssemblyImage" src="assets/podAssembly.jpg" alt="Pod Assembly Image" />
+      <div class="dot dot1" id="dot1"></div>
+      <div class="dot dot2" id="dot2"></div>
+      <div class="dot dot3" id="dot3"></div>
+      <div class="dot dot4" id="dot4"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

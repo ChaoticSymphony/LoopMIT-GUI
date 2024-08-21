@@ -1,0 +1,338 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    animation: fadeIn ease 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 1em;
+    color: #ffffff;
+  }
+  
+  .logo_section {
+    display: flex;
+    text-align: center;
+    /* text-align: left; */
+    margin: 10px;
+  }
+  
+  .heading_text {
+    font-size: 100px;
+  }
+  
+  #podImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 10px;
+    border: 2px solid black;
+  }
+  
+  .container {
+    background-color: #330d4e;
+  
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    overflow: hidden;
+    height: fit-content;
+    width: fit-content;
+  }
+  
+  button {
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: #4b0082;
+    color: #dbcdcd;
+  
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  .button1 {
+    width: 200px;
+    height: 90px;
+    margin: 5px;
+    background-color: #9e0202;
+    color: #dbcdcd;
+  
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 10px;
+    font-size: 40px;
+  }
+  
+  .button1:hover {
+    transform: scale(1.05);
+  }
+  
+  .button2 {
+    width: 200px;
+    height: 90px;
+    margin: 5px;
+    background-color: #009608;
+    color: #dbcdcd;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 10px;
+    font-size: 40px;
+  }
+  
+  .button2:hover {
+    transform: scale(1.05);
+  }
+  
+  .button3 {
+    width: 200px;
+    height: 90px;
+    margin: 5px;
+    background-color: #ffc002;
+    color: #000000;
+  
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 10px;
+    font-size: 40px;
+  }
+  
+  .button3:hover {
+    transform: scale(1.05);
+  }
+  
+  .slider-container {
+    width: 100%;
+    margin: 20px;
+  }
+  
+  #myRange {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border: 2px solid #483d8b;
+  }
+  
+  #myRange:hover {
+    opacity: 1;
+  }
+  
+  #myRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 200px;
+    height: 80px;
+    border: 0;
+    background: url("/assets/aerof.png");
+    cursor: pointer;
+    left: 0;
+  }
+  
+  #myRange::-moz-range-thumb {
+    width: 200px;
+    height: 80px;
+    border: 0;
+    background: url("aerof.png");
+    cursor: pointer;
+    left: 0;
+  }
+  
+  p {
+    text-align: center;
+    color: #dbcdcd;
+    font-size: 40px;
+  }
+  
+  .second_section {
+    padding: 5px;
+    border-radius: 30px;
+    margin: 5px;
+    height: 50%;
+  }
+  
+  .sec_lim_acc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .horizontal-section {
+    display: flex;
+    background-color: #2d0157;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    color: #dbcdcd;
+  }
+  
+  .horizontal-section div {
+    flex: 1;
+  }
+  
+  .horizontal-section p {
+    color: #dbcdcd;
+  }
+  
+  .sensors-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #2d0157;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  
+  .sensor-container {
+    margin-bottom: 10px;
+  }
+  
+  .sensors-info button {
+    font-size: 20px;
+    border-radius: 10px;
+    height: 50px;
+  }
+  
+  .low-voltage-buttons,
+  .high-voltage-buttons {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .low-voltage-buttons button,
+  .high-voltage-buttons button {
+    font-size: 30px;
+    border-radius: 10px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .custom-error-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #4b0082;
+    border: 1px solid #3c009d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    text-align: center;
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+  }
+  
+  .custom-error-popup p {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  
+  .custom-error-popup button {
+    padding: 10px;
+    background-color: #2b0149;
+    color: #dda0dd;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 5px;
+    height: 100px;
+  }
+  
+  .custom-error-popup button:hover {
+    background-color: #2b0149;
+  }
+
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  #podAssemblyImage {
+    max-width: 100%;
+    max-height: 1000px; /* Adjust this value to control the height */
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Center the image horizontally */
+    border-radius: 20px;
+  }
+  
+  #imageContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  #imageContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative; /* Ensure the container is positioned relatively */
+  }
+  
+  #podAssemblyImage {
+    max-width: 100%;
+    max-height: 1000px; /* Adjust this value as needed */
+    width: auto;
+    height: auto;
+  }
+  
+  .dot {
+    width: 10px; /* Adjust size as needed */
+    height: 10px; /* Adjust size as needed */
+    border-radius: 50%;
+    position: absolute;
+    background-color: red; /* Default color */
+  }
+  
+  /* Specific sizes for dot1 to make it bigger */
+.dot1 {
+  width: 30px; /* Bigger size */
+  height: 30px; /* Bigger size */
+  top: 10%; 
+  left: 20%; 
+}
+.dot4 {
+  width: 30px; /* Bigger size */
+  height: 30px; /* Bigger size */
+  top: 10%; 
+  left: 20%; 
+}
+
+  /* Adjust these positions based on where you want to place the dots */
+  .dot1 { top: 66.5%; left: 42.6%; }
+  .dot2 { top: 31%; left: 47.5%; }
+  .dot3 { top: 31%; left: 41.5%; }
+  .dot4 { top: 66.5%; left: 64.3%; }
+  
