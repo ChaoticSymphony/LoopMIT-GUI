@@ -23,8 +23,9 @@
           <span id="demo" style="font-weight: bold">0</span>
         </p>
       </div>
-      <button class="button2">START</button>
-      <button class="button3">STOP</button>
+      <!-- Relay Control Buttons -->
+      <button class="button2" onclick="toggleRelay('on')">ON</button>
+      <button class="button3" onclick="toggleRelay('off')">OFF</button>
       <button class="button1">ESTOP</button>
     </div>
     <div class="sec_main" style="display: flex">
@@ -62,7 +63,6 @@
         <div class="horizontal-section" style="width: 440px; margin: 10px">
           <div class="second_section">
             <p>LIM Temperature</p>
-
             <button
               style="font-size: 30px; border-radius: 10px; height: 100px"
               id="lim_temp"
@@ -205,15 +205,37 @@
       </div>
     </div>
 
-    <div id="imageContainer">
-      <img id="podAssemblyImage" src="assets/podAssembly.jpg" alt="Pod Assembly Image" />
-      <div class="dot dot1" id="dot1"></div>
-      <div class="dot dot2" id="dot2"></div>
-      <div class="dot dot3" id="dot3"></div>
-      <div class="dot dot4" id="dot4"></div>
+    <div id="sensorStatusModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="podAssemblyImage" src="assets/podAssembly.png" alt="Pod Assembly Image" />
+        <div class="dot dot1" id="dot1"></div>
+        <div class="dot dot2" id="dot2"></div>
+        <div class="dot dot3" id="dot3"></div>
+        <div class="dot dot4" id="dot4"></div>
+      </div>
     </div>
+
+    <button onclick="openModal()">Sensor Status</button>
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // Function to toggle the relay
+    function toggleRelay(action) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/relay_" + action, true);
+        xhr.send();
+    }
+
+    // Modal control functions
+    function openModal() {
+      document.getElementById('sensorStatusModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('sensorStatusModal').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
