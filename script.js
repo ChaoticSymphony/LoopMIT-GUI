@@ -1,3 +1,41 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const limtemp = document.getElementById("lim_temp");
+
+  function fetchSensorData() {
+    fetch("http://192.168.4.1/")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Received data:", data);
+        limtemp.innerText = `${data.temperature_C.toFixed(2)}°C`;
+        if (data.temperature_C > 70) {
+          showCustomError("Emergency Stop. Temperature exceeds 70°C.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching sensor data", error);
+      });
+  }
+
+  fetchSensorData(); // Call the function once on page load
+  setInterval(fetchSensorData, 2000); // Fetch every 2 seconds
+});
+
+// Function to show custom error message
+function showCustomError(message) {
+  const customErrorPopup = document.getElementById("customErrorPopup");
+  const customErrorMessage = document.getElementById("customErrorMessage");
+
+  customErrorMessage.innerText = message;
+  customErrorPopup.style.display = "block";
+}
+
+// Function to hide custom error message
+function hideCustomError() {
+  const customErrorPopup = document.getElementById("customErrorPopup");
+  customErrorPopup.style.display = "none";
+}
+
+// Slider Control Functions
 const rangeInput = document.getElementById("myRange");
 const distanceSpan = document.getElementById("demo");
 let animationFrameId;
@@ -21,25 +59,13 @@ function animateSlider() {
   }
 }
 
-const customErrorPopup = document.getElementById("customErrorPopup");
-const customErrorMessage = document.getElementById("customErrorMessage");
-
-function showCustomError(message) {
-  customErrorMessage.innerText = message;
-  customErrorPopup.style.display = "block";
-}
-
-function hideCustomError() {
-  customErrorPopup.style.display = "none";
-}
-
 function stopSlider() {
   cancelAnimationFrame(animationFrameId);
   let targetDistance = distance + 15;
 
   if (targetDistance < 300) {
-    showCustomError("Brakes Activated");
-    return;
+    // showCustomError("Brakes Activated");
+    // return;
   }
 
   function animateEStop() {
@@ -83,45 +109,22 @@ document.querySelector(".button2").addEventListener("click", moveSlider);
 document.querySelector(".button3").addEventListener("click", stopSlider);
 document.querySelector(".button1").addEventListener("click", estopSlider);
 
-// Getting Data From Server
-
-document.addEventListener("DOMContentLoaded", function () {
-  const limtemp = document.getElementById("lim_temp");
-  const customErrorPopup = document.getElementById("customErrorPopup");
-  const customErrorMessage = document.getElementById("customErrorMessage");
-
-  function fetchSensorData() {
-    fetch("http://192.168.4.1/")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Received data:", data);
-        limtemp.innerText = `${data.temperature_C.toFixed(2)}°C`; // Accessing the correct key
-        if (data.temperature_C > 70) {
-          showCustomError(
-            "Emergency Stop.Temperature exceeds 70°C."
-          );
-        }
-      })
-      .catch((error) => {
-        console.error("Error", error);
-      });
-  }
-
-  function showCustomError(message) {
-    customErrorMessage.innerText = message;
-    customErrorPopup.style.display = "block";
-  }
-
-  function hideCustomError() {
-    customErrorPopup.style.display = "none";
-  }
-
-  fetchSensorData();
-  setInterval(fetchSensorData, 10); // Fetch every 10 seconds
+// Relay Control Functions
+document.querySelector('.button2').addEventListener('click', function() {
+  fetch('http://192.168.1.184/relay_on')
+      .then(response => response.text())
+      .then(data => console.log('Relay ON:', data))
+      .catch(error => console.error('Error:', error));
 });
 
-// script.js
+document.querySelector('.button3').addEventListener('click', function() {
+  fetch('http://192.168.1.184/relay_off')
+      .then(response => response.text())
+      .then(data => console.log('Relay OFF:', data))
+      .catch(error => console.error('Error:', error));
+});
 
+// Dot Status Update Functions
 function updateDotStatus(dotId, status) {
   const dot = document.getElementById(dotId);
   switch (status) {
